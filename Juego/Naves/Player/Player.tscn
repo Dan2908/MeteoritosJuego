@@ -13,9 +13,13 @@ radius = 25.0
 height = 30.0
 
 [node name="Player" type="RigidBody2D"]
+z_index = 50
+z_as_relative = false
+collision_mask = 22
 physics_material_override = SubResource( 1 )
 linear_damp = 3.0
 script = ExtResource( 2 )
+potenciaMotor = 40
 potenciaRotacion = 100
 
 [node name="Sprite" type="Sprite" parent="."]

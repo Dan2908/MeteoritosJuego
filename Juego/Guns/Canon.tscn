@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://.import/laserLarge_003.ogg-0f0a1c057737c8e36b034409bdb18432.oggstr" type="AudioStream" id=1]
-[ext_resource path="res://Juego/Guns/Proyectil.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Juego/Guns/ProyectilPlayer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Juego/Guns/Canon.gd" type="Script" id=3]
 
 [node name="Canon" type="Node2D"]
