@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/player.png" type="Texture" id=1]
 [ext_resource path="res://Juego/Naves/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Juego/Guns/Canon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Juego/Guns/LaserBeam/LaserBeam2D.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -26,3 +27,5 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Canon" parent="." instance=ExtResource( 3 )]
+
+[node name="LaserBeam2D" parent="." instance=ExtResource( 4 )]

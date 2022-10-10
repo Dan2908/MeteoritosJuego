@@ -1,6 +1,7 @@
 # Casts a laser along a raycast, emitting particles on the impact point.
 # Use `is_casting` to make the laser fire and stop.
 # You can attach it to a weapon or a ship; the laser will rotate with its parent.
+class_name RayoLaser
 extends RayCast2D
 
 # Speed at which the laser extends when first fired, in pixels per seconds.
@@ -20,6 +21,7 @@ onready var tween := $Tween
 onready var casting_particles := $CastingParticles2D
 onready var collision_particles := $CollisionParticles2D
 onready var beam_particles := $BeamParticles2D
+onready var sfx_laser := $AudioStreamPlayer2D
 
 onready var line_width: float = fill.width
 
@@ -38,10 +40,12 @@ func set_is_casting(cast: bool) -> void:
 	is_casting = cast
 
 	if is_casting:
+		sfx_laser.play()
 		cast_to = Vector2.ZERO
 		fill.points[1] = cast_to
 		appear()
 	else:
+		sfx_laser.stop()
 		collision_particles.emitting = false
 		disappear()
 

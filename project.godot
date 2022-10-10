@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Juego/Guns/Canon.gd"
 }, {
-"base": "Reference",
+"base": "RigidBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Juego/Naves/Player/Player.gd"
@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Proyectil",
 "language": "GDScript",
 "path": "res://Juego/Guns/Proyectil.gd"
+}, {
+"base": "RayCast2D",
+"class": "RayoLaser",
+"language": "GDScript",
+"path": "res://Juego/Guns/LaserBeam/LaserBeam2D.gd"
 } ]
 _global_script_class_icons={
 "Canon": "",
 "Player": "",
-"Proyectil": ""
+"Proyectil": "",
+"RayoLaser": ""
 }
 
 [application]
@@ -73,6 +79,11 @@ rotar_antihorario={
 disparar={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+disparo_secundario={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"unicode":0,"echo":false,"script":null)
  ]
 }
 

@@ -8,6 +8,7 @@ export var potenciaMotor:int = 20
 export var potenciaRotacion:int = 200
 
 onready var canon:Canon = $Canon
+onready var rayoLaser:RayoLaser = $LaserBeam2D
 
 var empuje:Vector2 = Vector2.ZERO
 var dirRotacion:int = 0
@@ -43,3 +44,9 @@ func _integrate_forces(state: Physics2DDirectBodyState) -> void:
 # Procesos a ejecutar en cada repetición del Loop principal
 func _process(delta: float) -> void:
 	PlayerInput()
+
+func _unhandled_input(event):
+	if(event.is_action_pressed("disparo_secundario")):
+		rayoLaser.set_is_casting(true)
+	if(event.is_action_released("disparo_secundario")):
+		rayoLaser.set_is_casting(false)
