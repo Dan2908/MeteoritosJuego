@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/redLaser.png-dd9b687698c597e569e0629c42746e88.stex"
+path="res://.import/redLaser.png-67f4121272b9657ef4a7bd5509b1fda8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Naves/Ammo/redLaser.png"
-dest_files=[ "res://.import/redLaser.png-dd9b687698c597e569e0629c42746e88.stex" ]
+source_file="res://Assets/redLaser.png"
+dest_files=[ "res://.import/redLaser.png-67f4121272b9657ef4a7bd5509b1fda8.stex" ]
 
 [params]
 

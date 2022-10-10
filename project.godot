@@ -12,17 +12,17 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Canon",
 "language": "GDScript",
-"path": "res://Naves/Player/Canon.gd"
+"path": "res://Juego/Guns/Canon.gd"
 }, {
-"base": "RigidBody2D",
+"base": "Reference",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Naves/Player/Player.gd"
+"path": "res://Juego/Naves/Player/Player.gd"
 }, {
 "base": "Area2D",
 "class": "Proyectil",
 "language": "GDScript",
-"path": "res://Naves/Ammo/Proyectil.gd"
+"path": "res://Juego/Guns/Proyectil.gd"
 } ]
 _global_script_class_icons={
 "Canon": "",
