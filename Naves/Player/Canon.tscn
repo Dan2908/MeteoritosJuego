@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Naves/Player/Canon.gd" type="Script" id=1]
 [ext_resource path="res://Naves/Ammo/Proyectil.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Naves/Player/laserRetro.ogg" type="AudioStream" id=3]
+[ext_resource path="res://.import/laserLarge_003.ogg-0f0a1c057737c8e36b034409bdb18432.oggstr" type="AudioStream" id=3]
 
 [node name="Canon" type="Node2D"]
 script = ExtResource( 1 )

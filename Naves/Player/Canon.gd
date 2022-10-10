@@ -41,8 +41,6 @@ func Disparar():
 func _ready():
 	AlmacenarPuntosDisparo()
 	timerEnfriamiento.wait_time = cadenciaDisparo
-	# Forzar loop false: por alguna razón este cambio se resetea a true una vez instanciada
-	audioPlayer.stream.loop = false 
 
 func _process(delta:float) -> void:
 	if(estaFrio && estaDisparando):
