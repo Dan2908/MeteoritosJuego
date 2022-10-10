@@ -40,6 +40,10 @@ config/icon="res://icon.png"
 
 Eventos="*res://Juego/Eventos.gd"
 
+[display]
+
+window/size/always_on_top=true
+
 [input]
 
 mover_adelante={

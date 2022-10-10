@@ -5,7 +5,7 @@ extends RigidBody2D
 #	VARIABLES
 ###########################################
 export var potenciaMotor:int = 20
-export var potenciaRotacion:int = 280
+export var potenciaRotacion:int = 200
 
 onready var canon:Canon = $Canon
 
