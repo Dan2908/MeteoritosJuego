@@ -9,7 +9,7 @@ const maxVolumen: int = -5
 const minVolumen: int = -20
 
 var escalaObjetivo: float = minPitch
-var volumenObjetivo: float = minVolumen
+var volumenObjetivo: int = minVolumen
 
 func Acelerar(pEnReversa: bool):
 	tween.stop_all()
