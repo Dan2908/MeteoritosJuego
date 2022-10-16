@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Juego/Guns/ProyectilPlayer.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="ProyectilEnemigo" instance=ExtResource( 1 )]
+collision_layer = 16
+
+[node name="Sprite" parent="." index="0"]
+modulate = Color( 5, 0, 0, 1 )
+scale = Vector2( 0.76, 0.48 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 8, 9.09495e-13 )
+scale = Vector2( -0.300751, -0.476667 )
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" parent="." index="2"]
+z_index = 39
+z_as_relative = false
+rect = Rect2( -5, -5, 10, 10 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/motor.ogg-e0455691de3a37fccd9b6a47614b1bd8.oggstr"
+
+[deps]
+
+source_file="res://Assets/sound/motor.ogg"
+dest_files=[ "res://.import/motor.ogg-e0455691de3a37fccd9b6a47614b1bd8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
