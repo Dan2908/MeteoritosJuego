@@ -15,6 +15,7 @@ onready var estaFrio:bool = true
 onready var estaDisparando:bool = false setget set_EstaDisparando
 
 var puntosDisparo:Array = []
+var puedeDisparar:bool = false setget set_PuedeDisparar
 
 ###########################################
 #	MÉTODOS
@@ -36,7 +37,7 @@ func Disparar():
 			velocidadProyectil,
 			ataqueProyectil
 		)
-		Eventos.emit_signal("Disparar", new_Proyectil)
+		Eventos.emit_signal("disparar", new_Proyectil)
 
 func _ready():
 	AlmacenarPuntosDisparo()
@@ -46,8 +47,14 @@ func _process(delta:float) -> void:
 	if(estaFrio && estaDisparando):
 		Disparar()
 
+###########################################
+#	SET GET
+###########################################
 func set_EstaDisparando(pDisparando: bool) -> void:
 	estaDisparando = pDisparando
+
+func set_PuedeDisparar(pValor:bool) -> void:
+	puedeDisparar = pValor
 
 ###########################################
 #	SEÑALES

@@ -3,6 +3,7 @@ extends Node2D
 ###########################################
 #	VARIABLES
 ###########################################
+export var explosion:PackedScene = null
 onready var proyectiles:Node
 
 ###########################################
@@ -17,7 +18,8 @@ func CrearColaProyectiles():
 
 # Conectar con hub
 func Conectar():
-	Eventos.connect("Disparar", self, "_on_Disparar")
+	Eventos.connect("disparar", self, "_on_disparar")
+	Eventos.connect("nave_destruida", self, "_on_nave_destruida")
 
 func _ready():
 	CrearColaProyectiles()
@@ -26,5 +28,10 @@ func _ready():
 ###########################################
 #	SEÑALES
 ###########################################
-func _on_Disparar(pProyectil: Proyectil):
+func _on_disparar(pProyectil: Proyectil):
 	proyectiles.add_child(pProyectil)
+
+func _on_nave_destruida(posicion: Vector2):
+	var new_explosion: Node2D = explosion.instance()
+	new_explosion.global_position = posicion
+	add_child(new_explosion)

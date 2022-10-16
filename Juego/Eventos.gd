@@ -1,3 +1,4 @@
 extends Node
 
-signal Disparar(proyectil)
+signal disparar(proyectil)
+signal nave_destruida(position)
