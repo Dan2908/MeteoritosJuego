@@ -31,7 +31,7 @@ func Disparar():
 	timerEnfriamiento.start()
 	for punto in puntosDisparo:
 		var new_Proyectil:Proyectil = proyectil.instance()
-		new_Proyectil.crear(
+		new_Proyectil.Crear(
 			punto.global_position,
 			get_owner().rotation,
 			velocidadProyectil,
