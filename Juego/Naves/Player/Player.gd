@@ -8,7 +8,8 @@ enum ESTADOS {SPAWN, VIVO, MUERTO, INVENCIBLE}
 ###########################################
 export var potenciaMotor:int = 20
 export var potenciaRotacion:int = 200
-export var estela_maxima:int = 150
+export var estelaMaxima:int = 150
+export var hitPoints:float = 15.0
 
 onready var canon:Canon = $Canon
 onready var rayoLaser:RayoLaser = $LaserBeam2D
@@ -16,6 +17,7 @@ onready var estela:Estela = $EstelaDeImpulso/Estela
 onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var animacion:AnimationPlayer = $AnimationPlayer
 onready var motorSFX:MotorSFX = $Motor
+onready var impactoSFX:AudioStreamPlayer = $ImpactoSFX
 
 var dirRotacion:int = 0
 var empuje:Vector2 = Vector2.ZERO
@@ -49,6 +51,12 @@ func PlayerInput() -> void:
 
 func Destruir() -> void:
 	_ActualizarEstado(ESTADOS.MUERTO)
+
+func RecibirAtaque(pAtaque: float) -> void:
+	impactoSFX.play()
+	hitPoints = hitPoints - pAtaque
+	if(hitPoints < 0):
+		Destruir()
 
 func _ActualizarEstado(pValor: int) -> void:
 	match pValor:
@@ -96,7 +104,7 @@ func _unhandled_input(event) -> void:
 	if(event.is_action_released("mover_adelante") or event.is_action_released("mover_atras")):
 		motorSFX.Acelerar(true)
 	elif(event.is_action_pressed("mover_adelante")):
-		estela.set_max_points(estela_maxima)
+		estela.set_max_points(estelaMaxima)
 		motorSFX.Acelerar(false)
 	elif(event.is_action_pressed("mover_atras")):
 		estela.set_max_points(0)
@@ -111,7 +119,9 @@ func _ready() -> void:
 func set_Estado(pValor: int) -> void:
 	estado = pValor
 
+###########################################
+#	SEÑALES
+###########################################
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "spawn"):
 		_ActualizarEstado(ESTADOS.VIVO)
-		print("vivo")
