@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/shieldEffect.png" type="Texture" id=1]
+[ext_resource path="res://Juego/Naves/Player/Escudo/EscudoImpacto.gd" type="Script" id=2]
+[ext_resource path="res://Assets/sound/forceField.ogg" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "impacto"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 4, 1 ), Color( 0, 0, 4, 0 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+}, {
+"end_offset": 0.4,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0, 0.001 )
+}
+
+[node name="EscudoImpacto" type="Sprite"]
+modulate = Color( 0, 0, 4, 0 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Animacion" type="AnimationPlayer" parent="."]
+anims/impacto = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -8.0
+pitch_scale = 0.51
+bus = "SFX"
+
+[connection signal="animation_finished" from="Animacion" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="ready" from="Animacion" to="." method="_on_AnimationPlayer_ready"]

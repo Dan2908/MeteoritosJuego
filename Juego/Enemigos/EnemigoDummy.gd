@@ -5,8 +5,8 @@ onready var canon:Canon = $Canon
  
 var hitPoints:float = 10.0
 
-func RecibirAtaque(pAtaque: float) -> void:
-	hitPoints -= pAtaque
+func RecibirAtaque(pAtaque: Node2D) -> void:
+	hitPoints -= pAtaque.ataque
 	if(hitPoints <= 0):
 		queue_free()
 

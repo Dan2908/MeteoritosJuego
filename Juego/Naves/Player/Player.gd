@@ -18,11 +18,12 @@ onready var colisionador:CollisionShape2D = $CollisionShape2D
 onready var animacion:AnimationPlayer = $AnimationPlayer
 onready var motorSFX:MotorSFX = $Motor
 onready var impactoSFX:AudioStreamPlayer = $ImpactoSFX
+onready var escudo:EscudoPlayer = $Escudo
 
 var dirRotacion:int = 0
 var empuje:Vector2 = Vector2.ZERO
 var estado:int = ESTADOS.SPAWN setget set_Estado
-
+var escudoActivo:bool = false
 ###########################################
 #	MÉTODOS
 ###########################################
@@ -49,12 +50,16 @@ func PlayerInput() -> void:
 	else:
 		canon.set_EstaDisparando(false)
 
+	if(Input.is_action_just_pressed("activar_escudo")):
+		escudoActivo = !escudoActivo
+		escudo.Actualizar(escudoActivo)
+
 func Destruir() -> void:
 	_ActualizarEstado(ESTADOS.MUERTO)
 
-func RecibirAtaque(pAtaque: float) -> void:
+func RecibirAtaque(pAtaque: Node2D) -> void:
 	impactoSFX.play()
-	hitPoints = hitPoints - pAtaque
+	hitPoints = hitPoints - pAtaque.ataque
 	if(hitPoints < 0):
 		Destruir()
 
@@ -112,6 +117,7 @@ func _unhandled_input(event) -> void:
 
 func _ready() -> void:
 	_ActualizarEstado(ESTADOS.SPAWN)
+	escudo.Actualizar(escudoActivo)
 	motorSFX.play()
 ###########################################
 #	SET GET

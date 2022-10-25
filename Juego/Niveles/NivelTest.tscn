@@ -11,11 +11,13 @@ script = ExtResource( 4 )
 explosion = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 448, 192 )
+position = Vector2( 464, 368 )
 gravity_scale = 0.0
+potenciaRotacion = 80
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 2 )
 
 [node name="EnemigoDummy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 720, 144 )
+rotation = 3.14159

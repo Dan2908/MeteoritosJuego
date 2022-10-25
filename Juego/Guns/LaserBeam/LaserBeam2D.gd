@@ -67,7 +67,8 @@ func cast_beam(delta: float) -> void:
 		collision_particles.global_rotation = get_collision_normal().angle()
 		collision_particles.position = cast_point
 		if get_collider().has_method("RecibirAtaque"):
-			get_collider().RecibirAtaque(ataque * delta)
+			ataque = delta
+			get_collider().RecibirAtaque(self)
 
 	fill.points[1] = cast_point
 	beam_particles.position = cast_point * 0.5

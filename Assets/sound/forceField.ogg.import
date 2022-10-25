@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/forceField.ogg-0632b48cb1b04135e6c6e9d6c2e76edb.oggstr"
+
+[deps]
+
+source_file="res://Assets/sound/forceField.ogg"
+dest_files=[ "res://.import/forceField.ogg-0632b48cb1b04135e6c6e9d6c2e76edb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

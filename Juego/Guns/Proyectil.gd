@@ -18,7 +18,7 @@ func Crear(pPosicion: Vector2, pDireccion: float, pVelocidad: float, pAtaque: fl
 
 func Atacar(pEntidad: CollisionObject2D):
 	if(pEntidad.has_method("RecibirAtaque")):
-		pEntidad.RecibirAtaque(ataque)
+		pEntidad.RecibirAtaque(self)
 	queue_free()
 
 func _physics_process(delta: float) -> void:
